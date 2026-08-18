@@ -1,20 +1,17 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
 
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav-links");
-
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("open");
     toggle.setAttribute("aria-expanded", String(open));
   });
-
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
+  nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }));
 }
 
 const observer = new IntersectionObserver(entries => {
@@ -26,9 +23,13 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 
-document.querySelectorAll(
-  ".flagship-card, .case-card, .text-project, .optimization-case, .skill-row, .time-card"
-).forEach(el => {
-  el.classList.add("reveal");
-  observer.observe(el);
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const portfolioVideos = [...document.querySelectorAll("video")];
+portfolioVideos.forEach(video => {
+  video.addEventListener("play", () => {
+    portfolioVideos.forEach(other => {
+      if (other !== video && !other.paused) other.pause();
+    });
+  });
 });
