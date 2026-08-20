@@ -3,38 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unity移动端优化案例 | 王翔彬</title>
+<meta name="description" content="王翔彬｜Unity移动端技术美术与优化案例：Frame Debugger、Batch、Draw Call、Mesh、材质、透明渲染与性能问题定位。" />
+<title>Unity技术美术与移动端优化 | 王翔彬</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="topbar shell">
+  <a class="brand" href="index.html#top"><span class="brand-mark">WX</span><span><strong>王翔彬</strong><small>GAME ART / UNITY</small></span></a>
+  <nav class="nav-links"><a href="index.html">首页</a><a href="index.html#optimization">优化</a><a href="ai-workflow.html">AI流程</a><a href="https://xbin1678145314-spec.github.io/portfolio/technical-art.html">EN</a></nav>
+</header>
 <main class="section shell">
-<h1>Unity移动端优化案例</h1>
-<p>通过Unity性能分析工具定位移动端场景渲染问题，并结合模型、材质和资源组织方式进行优化。</p>
+  <p class="kicker">UNITY移动端 · FRAME DEBUGGER · BATCH · 美术侧性能优化</p>
+  <h1>Unity技术美术与移动端优化</h1>
+  <p>目前我的技术美术能力主要集中在美术侧移动端优化：定位渲染问题、理解Batch和Draw Call为什么增加、调整Mesh/材质/贴图与场景组织，并在需要程序实现时提出明确需求并验证结果。</p>
 
-<h2>优化流程</h2>
-<pre>
-性能问题发现
-        ↓
-Unity Stats / Frame Debugger分析
-        ↓
-定位Draw Call、材质、模型问题
-        ↓
-制定优化方案
-        ↓
-Unity验证效果
-</pre>
+  <div class="case-grid">
+    <article><strong>问题定位</strong><p>使用Unity Stats和Frame Debugger检查重复渲染、材质切换、合批中断以及不必要的渲染成本。</p></article>
+    <article><strong>美术侧优化</strong><p>根据问题进行减面、材质合并、贴图控制、透明材质检查、场景结构和资源组织调整。</p></article>
+    <article><strong>程序协作</strong><p>当运行时合批、Mesh合并、可见范围或其他方案需要代码时，提出性能与视觉目标，并在Unity中验证修改结果。</p></article>
+  </div>
 
-<h2>优化方向</h2>
-<ul>
-<li>分析Batch和Draw Call产生原因</li>
-<li>优化Mesh数量与模型结构</li>
-<li>减少不必要材质切换</li>
-<li>控制透明材质和额外渲染消耗</li>
-<li>配合程序调整运行表现</li>
-</ul>
+  <h2>常用排查流程</h2>
+  <pre>
+发现性能问题
+        ↓
+Unity Stats / Frame Debugger
+        ↓
+定位Draw Call / 材质 / Mesh原因
+        ↓
+判断美术侧或程序侧解决方案
+        ↓
+Unity验证结果
+  </pre>
 
-<h2>案例结果</h2>
-<p>大型场景中通过模型、材质和合批方案调整，将Batches约300降低至约150，同时保持原有视觉效果。</p>
+  <h2>案例：高实例场景Batch优化</h2>
+  <p>某高实例场景Batches约300。通过检查模型复杂度、材质和合批条件，对相关资产进行简化，并配合程序调整合批方案，最终降低至约150，同时保持目标视觉效果。</p>
+
+  <h2>其他会重点检查的问题</h2>
+  <ul>
+    <li>不同Mesh、不同材质导致无法有效合批。</li>
+    <li>透明预览材质带来的Batch和Overdraw增加。</li>
+    <li>建设类场景同屏物体过多导致渲染负担上升。</li>
+    <li>相机可见范围过大带来的额外渲染内容。</li>
+    <li>贴图尺寸、模型面数、材质数量和单模型多材质问题。</li>
+    <li>优化后继续进行视觉验收，避免性能修改破坏最终表现。</li>
+  </ul>
+
+  <h2>当前继续补充的方向</h2>
+  <p>继续深入Unity渲染底层、Shader Graph、URP、CPU/GPU职责、透明渲染、Depth与Render Queue等内容，让现有的实战优化能力逐步发展为更完整的美术向Technical Artist能力。</p>
+
+  <p><a class="btn primary" href="index.html#optimization">返回作品集</a></p>
 </main>
 </body>
 </html>
