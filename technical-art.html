@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity移动端优化案例 | 王翔彬</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="section shell">
+<h1>Unity移动端优化案例</h1>
+<p>通过Unity性能分析工具定位移动端场景渲染问题，并结合模型、材质和资源组织方式进行优化。</p>
+
+<h2>优化流程</h2>
+<pre>
+性能问题发现
+        ↓
+Unity Stats / Frame Debugger分析
+        ↓
+定位Draw Call、材质、模型问题
+        ↓
+制定优化方案
+        ↓
+Unity验证效果
+</pre>
+
+<h2>优化方向</h2>
+<ul>
+<li>分析Batch和Draw Call产生原因</li>
+<li>优化Mesh数量与模型结构</li>
+<li>减少不必要材质切换</li>
+<li>控制透明材质和额外渲染消耗</li>
+<li>配合程序调整运行表现</li>
+</ul>
+
+<h2>案例结果</h2>
+<p>大型场景中通过模型、材质和合批方案调整，将Batches约300降低至约150，同时保持原有视觉效果。</p>
+</main>
+</body>
+</html>
